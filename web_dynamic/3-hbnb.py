@@ -10,13 +10,14 @@ from flask import Flask, render_template
 import uuid
 app = Flask(__name__)
 
+
 @app.teardown_appcontext
 def close_db(error):
     """ Remove the current SQLAlchemy Session """
     storage.close()
 
 
-@app.route('/2-hbnb/', strict_slashes=False)
+@app.route('/3-hbnb/', strict_slashes=False)
 def hbnb():
     """ HBNB is alive! """
     states = storage.all(State).values()
